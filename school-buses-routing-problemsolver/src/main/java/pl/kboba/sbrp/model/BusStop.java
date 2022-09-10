@@ -4,8 +4,9 @@ import lombok.*;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class BusStop {
-    
+
     private int x;
     private int y;
     private int id;
