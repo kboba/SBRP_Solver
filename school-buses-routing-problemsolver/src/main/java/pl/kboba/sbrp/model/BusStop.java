@@ -3,14 +3,21 @@ package pl.kboba.sbrp.model;
 import lombok.*;
 
 @Data
+@AllArgsConstructor
 public class BusStop {
-
-    @NonNull
+    
+    private int x;
+    private int y;
     private int id;
-    private int parent_id = -1;
-    private boolean visited = false;
-    private double distance = Double.MAX_VALUE;
-    @NonNull
+    private int previous_id;
+    private int next_id;
+    private boolean visited;
     private int passengersOnBusStop;
 
+    public BusStop(int id, int x, int y) {
+        this.id = id;
+        this.x = x;
+        this.y = y;
+        visited = false;
+    }
 }
