@@ -7,7 +7,7 @@ import lombok.NonNull;
 public abstract class ResultPrinter {
 
     @NonNull
-    private ProblemSolver problemSolver;
+    ProblemSolver problemSolver;
 
     public abstract void printResult ();
 

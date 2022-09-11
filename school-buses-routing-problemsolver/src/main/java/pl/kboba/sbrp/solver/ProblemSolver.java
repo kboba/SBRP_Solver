@@ -8,7 +8,7 @@ import pl.kboba.sbrp.model.City;
 public abstract class ProblemSolver {
 
     @NonNull
-    private City city;
+    City city;
 
     public abstract void findSolution ();
 
