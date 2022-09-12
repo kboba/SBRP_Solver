@@ -21,7 +21,7 @@ public class BasicProblemSolver extends ProblemSolver {
     @Override
     public void findSolution() {
         int numberOfBusStops = city.getBusStops().size();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 200; i++) {
             int firstListId = random.nextInt(numberOfBusStops);
             int secondListId = random.nextInt(numberOfBusStops);
             while (numbersAreSame(firstListId, secondListId)
@@ -34,9 +34,10 @@ public class BasicProblemSolver extends ProblemSolver {
             }
             revertTwoBusStopsById(firstListId, secondListId);
             double newCalculatedDistance = calculateTotalRouteDistance();
-            if(newCalculatedDistance >= routeDistance){
+            if(newCalculatedDistance >= routeDistance)
                 revertTwoBusStopsById(firstListId, secondListId);
-            }
+            else
+                routeDistance = newCalculatedDistance;
         }
     }
 
