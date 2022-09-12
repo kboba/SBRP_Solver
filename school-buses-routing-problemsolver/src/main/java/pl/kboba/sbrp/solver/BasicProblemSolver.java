@@ -1,21 +1,29 @@
 package pl.kboba.sbrp.solver;
 
+import lombok.Getter;
 import lombok.NonNull;
 import pl.kboba.sbrp.model.BusStop;
 import pl.kboba.sbrp.model.City;
 
+import java.util.List;
 import java.util.Random;
 
 
 public class BasicProblemSolver extends ProblemSolver {
 
+    @Getter
     private double routeDistance = 0;
     Random random = new Random();
 
     public BasicProblemSolver(@NonNull City city) {
         super(city);
         initializeRoute();
-        findSolution();
+    }
+
+
+    @Override
+    public List<BusStop> getSolution() {
+        return city.getBusStops();
     }
 
     @Override
