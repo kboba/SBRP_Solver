@@ -128,7 +128,7 @@ public class City {
         return Math.hypot(distanceX, distanceY);
     }
 
-    private double calculateDistanceBetweenTwoBusStops(BusStop busStop1, BusStop busStop2) {
+    public double calculateDistanceBetweenTwoBusStops(BusStop busStop1, BusStop busStop2) {
         double distanceX = Math.abs(busStop1.getX()-busStop2.getX());
         double distanceY = Math.abs(busStop1.getY()-busStop2.getY());
 
