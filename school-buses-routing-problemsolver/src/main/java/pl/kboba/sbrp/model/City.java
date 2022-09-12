@@ -3,7 +3,6 @@ package pl.kboba.sbrp.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,9 +75,7 @@ public class City {
 
     private void assignStudentsToStops() {
         students.forEach(student -> {
-            int studentX = student.getX();
-            int studentY = student.getY();
-            BusStop nearestBusStopId = findNearestBusStop(studentX, studentY);
+            BusStop nearestBusStopId = findNearestBusStopForStudent(student);
             nearestBusStopId.addPassengerToBusStop();
         });
     }
@@ -109,12 +106,12 @@ public class City {
         }
     }
 
-    private BusStop findNearestBusStop(int x, int y){
+    private BusStop findNearestBusStopForStudent(Student student){
         BusStop nearestBusStop = null;
         double currentMinDistance = Double.MAX_VALUE;
 
         for (BusStop currentStop : busStops) {
-            double distanceToStop = calculateDistanceBetweenBusStopAndPoint(currentStop, new Point(x, y));
+            double distanceToStop = calculateDistanceBetweenBusStopAndStudent(currentStop, student);
             if (distanceToStop < currentMinDistance) {
                 currentMinDistance = distanceToStop;
                 nearestBusStop = currentStop;
@@ -124,9 +121,9 @@ public class City {
         return nearestBusStop;
     }
 
-    private double calculateDistanceBetweenBusStopAndPoint(BusStop busStop, Point point) {
-        double distanceX = Math.abs(busStop.getX()-point.getX());
-        double distanceY = Math.abs(busStop.getY()-point.getY());
+    private double calculateDistanceBetweenBusStopAndStudent(BusStop busStop, Student student) {
+        double distanceX = Math.abs(busStop.getX()-student.getX());
+        double distanceY = Math.abs(busStop.getY()-student.getY());
 
         return Math.hypot(distanceX, distanceY);
     }
