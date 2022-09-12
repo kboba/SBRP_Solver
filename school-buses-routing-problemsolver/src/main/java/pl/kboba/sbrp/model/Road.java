@@ -5,6 +5,7 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Road {
 
     private int firstBusStopID;
