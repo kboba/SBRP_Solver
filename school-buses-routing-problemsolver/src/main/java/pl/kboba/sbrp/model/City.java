@@ -26,14 +26,23 @@ public class City {
     public BusStop findBusStopById(int id) {
         return busStops.stream()
                 .filter(busStop -> busStop.getId() == id)
-                .findAny().get();
+                .findAny()
+                .orElse(null);
     }
 
     public BusStop findAnyNotVisitedBusStop() {
         return busStops.stream()
                 .filter(bStop -> !bStop.isVisited())
                 .findAny()
-                .get();
+                .orElse(null);
+    }
+
+    public boolean isAnyBusStopNotVisited() {
+        for (BusStop busStop : busStops) {
+            if (!busStop.isVisited())
+                return true;
+        }
+        return false;
     }
 
     private void initializeBusStops() {
