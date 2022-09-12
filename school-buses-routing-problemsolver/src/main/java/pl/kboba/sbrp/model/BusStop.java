@@ -11,14 +11,14 @@ import java.util.List;
 @EqualsAndHashCode
 public class BusStop {
 
-    private List<Road> roadsToOtherStops = new ArrayList<>();
-    private int x;
-    private int y;
     private int id;
     private int previousId = -1;
     private int nextId = -1;
+    private int x;
+    private int y;
     private boolean visited;
     private int passengersOnBusStop = 0;
+    private List<Road> roadsToOtherStops = new ArrayList<>();
 
     public BusStop(int id, int x, int y) {
         this.id = id;
