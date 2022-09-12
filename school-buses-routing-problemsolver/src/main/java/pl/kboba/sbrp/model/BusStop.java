@@ -7,7 +7,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @EqualsAndHashCode
 public class BusStop {
 
@@ -40,5 +39,14 @@ public class BusStop {
 
     public void addRoad(Road road) {
         roadsToOtherStops.add(road);
+    }
+
+    @Override
+    public String toString() {
+        return "BusStop{" +
+                "id=" + id +
+                ", previousId=" + previousId +
+                ", nextId=" + nextId +
+                '}';
     }
 }
