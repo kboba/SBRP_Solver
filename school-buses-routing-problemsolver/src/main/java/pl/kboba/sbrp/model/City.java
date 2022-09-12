@@ -23,6 +23,19 @@ public class City {
         initializeRoads();
     }
 
+    public BusStop findBusStopById(int id) {
+        return busStops.stream()
+                .filter(busStop -> busStop.getId() == id)
+                .findAny().get();
+    }
+
+    public BusStop findAnyNotVisitedBusStop() {
+        return busStops.stream()
+                .filter(bStop -> !bStop.isVisited())
+                .findAny()
+                .get();
+    }
+
     private void initializeBusStops() {
         busStops = new ArrayList<>();
         busStops.add(new BusStop(0, 10, 10));
