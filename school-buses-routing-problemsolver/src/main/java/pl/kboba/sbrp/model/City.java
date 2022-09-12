@@ -46,8 +46,8 @@ public class City {
 
     private void initializeBusStops() {
         busStops = new ArrayList<>();
-//        basicBusStopsInitialize();
-        testingBusStopsInitialize();
+        basicBusStopsInitialize();
+//        testingBusStopsInitialize();
     }
 
     private void testingBusStopsInitialize() {
@@ -59,8 +59,8 @@ public class City {
     }
 
     private void basicBusStopsInitialize() {
-        busStops.add(new BusStop(1, 10, 20));
         busStops.add(new BusStop(0, 10, 10));
+        busStops.add(new BusStop(1, 10, 20));
         busStops.add(new BusStop(2, 20, 10));
         busStops.add(new BusStop(3, 20, 20));
         busStops.add(new BusStop(4, 30, 5));
