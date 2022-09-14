@@ -1,7 +1,6 @@
 package pl.kboba.sbrp.solver;
 
 import lombok.NonNull;
-import pl.kboba.sbrp.model.BusStop;
 import pl.kboba.sbrp.model.City;
 
 public class NearestNeightbourProblemSolver extends ProblemSolver {
