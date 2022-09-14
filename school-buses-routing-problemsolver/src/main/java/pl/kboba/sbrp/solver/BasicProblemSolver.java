@@ -18,12 +18,6 @@ public class BasicProblemSolver extends ProblemSolver {
         initializeRoute();
     }
 
-
-    @Override
-    public List<BusStop> getSolution() {
-        return city.getBusStops();
-    }
-
     @Override
     public void findSolution() {
         int numberOfBusStops = city.getBusStops().size();

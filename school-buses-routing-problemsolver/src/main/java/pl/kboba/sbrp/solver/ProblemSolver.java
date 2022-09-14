@@ -21,6 +21,8 @@ public abstract class ProblemSolver {
     @Getter
     double routeDistance = 0;
 
-    public abstract List<BusStop> getSolution();
+    public List<BusStop> getSolution() {
+        return city.getBusStops();
+    }
     public abstract void findSolution ();
 }
