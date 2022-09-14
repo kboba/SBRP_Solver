@@ -45,29 +45,10 @@ public class City {
     }
 
     private void initializeBusStops() {
-        busStops = new ArrayList<>();
-        basicBusStopsInitialize();
-//        testingBusStopsInitialize();
-    }
-
-    private void testingBusStopsInitialize() {
-        busStops.add(new BusStop(100, 40, 10, true));
-        busStops.add(new BusStop(2, 10, 15));
-        busStops.add(new BusStop(3, 25, 10));
-        busStops.add(new BusStop(4, 25, 20));
-        busStops.add(new BusStop(5, 40, 20));
-    }
-
-    private void basicBusStopsInitialize() {
-        busStops.add(new BusStop(0, 10, 10));
-        busStops.add(new BusStop(1, 10, 20));
-        busStops.add(new BusStop(2, 20, 10));
-        busStops.add(new BusStop(3, 20, 20));
-        busStops.add(new BusStop(4, 30, 5));
-        busStops.add(new BusStop(5, 30, 15));
-        busStops.add(new BusStop(6, 30, 25));
-        busStops.add(new BusStop(7, 25, 20));
-        busStops.add(new BusStop(100, 40, 10, true));
+        busStops = BusStopsInitializer
+                .basicBusStopsInitialize();
+//                .basicBusStopsMoreMessedInitialize();
+//                .testingBusStopsInitialize();
     }
 
     private void initializeStudents() {
