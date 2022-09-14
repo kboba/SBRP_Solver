@@ -1,4 +1,6 @@
-package pl.kboba.sbrp.model;
+package pl.kboba.sbrp.model.initializers;
+
+import pl.kboba.sbrp.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;

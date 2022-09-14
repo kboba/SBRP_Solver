@@ -1,4 +1,6 @@
-package pl.kboba.sbrp.model;
+package pl.kboba.sbrp.model.initializers;
+
+import pl.kboba.sbrp.model.BusStop;
 
 import java.util.ArrayList;
 import java.util.List;
