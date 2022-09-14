@@ -11,8 +11,6 @@ import java.util.Random;
 
 public class BasicProblemSolver extends ProblemSolver {
 
-    @Getter
-    private double routeDistance = 0;
     Random random = new Random();
 
     public BasicProblemSolver(@NonNull City city) {
