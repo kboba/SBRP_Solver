@@ -5,9 +5,9 @@ import pl.kboba.sbrp.model.BusStop;
 
 import java.util.List;
 
-public class BasicProblemPrinter extends ResultPrinter {
+public class BasicResultPrinter extends ProblemResultPrinter {
 
-    public BasicProblemPrinter(@NonNull ProblemSolver problemSolver) {
+    public BasicResultPrinter(@NonNull ProblemSolver problemSolver) {
         super(problemSolver);
     }
 
