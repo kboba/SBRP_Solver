@@ -23,13 +23,23 @@ public class BasicResultPrinter extends ProblemResultPrinter {
         System.out.println("## After optimization  ##");
         System.out.println("#########################");
         printResultFromProblemSolver();
+        System.out.println();
+        System.out.println();
     }
 
     private void printResultFromProblemSolver() {
         List<BusStop> busStopsSolution = problemSolver.getSolution();
+        if(busStopsSolution == null || problemSolver.city == null) {
+            System.out.println("An error occurred: solution is null");
+            return;
+        }
         System.out.println("Route:");
         BusStop busStop = problemSolver.city.findBusStopById(100);
         for(int i = 0; i < busStopsSolution.size(); i++) {
+            if(busStop == null) {
+                System.out.println("An error occurred: bus stop is null");
+                return;
+            }
             System.out.print("Id:".concat(String.valueOf(busStop.getId())).concat(" -> "));
             busStop = problemSolver.city.findBusStopById(busStop.getNextId());
         }
