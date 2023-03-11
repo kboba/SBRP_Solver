@@ -14,12 +14,14 @@ public abstract class ProblemSolver {
     @Getter
     @Setter
     private double routeDistance = 0;
-    protected final static ProblemSolverUtils problemSolverUtils = new ProblemSolverUtils();
+    protected static final ProblemSolverUtils problemSolverUtils = new ProblemSolverUtils();
 
     ProblemSolver(@NonNull City city) {
         this.city = city;
     }
 
-    public abstract List<BusStop> getSolution();
+    public List<BusStop> getSolution() {
+        return city.getBusStops();
+    }
     public abstract void findSolution ();
 }

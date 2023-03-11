@@ -20,11 +20,6 @@ public class BasicProblemSolver extends ProblemSolver {
 
 
     @Override
-    public List<BusStop> getSolution() {
-        return city.getBusStops();
-    }
-
-    @Override
     public void findSolution() {
         int numberOfBusStops = city.getBusStops().size();
         for (int i = 0; i < 200; i++) {
