@@ -28,22 +28,6 @@ public class ProblemSolverUtils {
         firstBusStopNext.setNextId(secondBusStop.getId());
     }
 
-    public void initializeRouteById(City city) {
-        // find starting stop (id == 100)
-        BusStop currentBusStop = city.findBusStopById(100);
-        // when is any bus stop not visited, then continue visiting
-        while(city.isAnyBusStopNotVisited()) {
-            BusStop notVisitedBusStop = city.findAnyNotVisitedBusStop();
-            currentBusStop.setNextId(notVisitedBusStop.getId());
-            notVisitedBusStop.setPreviousId(currentBusStop.getId());
-            currentBusStop = notVisitedBusStop;
-            currentBusStop.setVisited(true);
-        }
-        // last visited BusStop lead to starting point
-        currentBusStop.setNextId(100);
-        city.findBusStopById(100).setPreviousId(currentBusStop.getId());
-    }
-
     public boolean firstNextIdIsSameLikeSecondId(City city, int firstListId, int secondListId) {
         return city.getBusStops().indexOf(city.findBusStopById(city.getBusStops().get(firstListId).getNextId())) == secondListId;
     }
