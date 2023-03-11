@@ -5,9 +5,9 @@ import pl.kboba.sbrp.model.BusStop;
 
 import java.util.List;
 
-public class BasicProblemPrinter extends ResultPrinter {
+public class BasicResultPrinter extends ProblemResultPrinter {
 
-    public BasicProblemPrinter(@NonNull ProblemSolver problemSolver) {
+    public BasicResultPrinter(@NonNull ProblemSolver problemSolver) {
         super(problemSolver);
     }
 
@@ -33,9 +33,7 @@ public class BasicProblemPrinter extends ResultPrinter {
             System.out.print("Id:".concat(String.valueOf(busStop.getId())).concat(" -> "));
             busStop = problemSolver.city.findBusStopById(busStop.getNextId());
         }
-        if(problemSolver instanceof BasicProblemSolver basicProblemSolver) {
-            double distance = basicProblemSolver.getRouteDistance();
-            System.out.println("\nTotal distance: ".concat(String.valueOf(distance)));
-        }
+        double distance = problemSolver.getRouteDistance();
+        System.out.println("\nTotal distance: ".concat(String.valueOf(distance)));
     }
 }
