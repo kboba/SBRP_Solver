@@ -22,6 +22,24 @@ public class City {
         initializeRoads();
     }
 
+    public double calculateTotalRouteDistance() {
+        BusStop school = findBusStopById(100);
+        BusStop currentBusStop = school;
+        double calculatedRouteDistance = 0;
+
+        while (currentBusStop.getNextId() != 100){
+            int nextBusStopId = currentBusStop.getNextId();
+            BusStop nextBusStop = findBusStopById(nextBusStopId);
+            double distanceBetweenCities = calculateDistanceBetweenTwoBusStops(currentBusStop, nextBusStop);
+            calculatedRouteDistance += distanceBetweenCities;
+            currentBusStop = nextBusStop;
+        }
+        double distanceBetweenLastBusStopAndSchool = calculateDistanceBetweenTwoBusStops(currentBusStop, school);
+        calculatedRouteDistance += distanceBetweenLastBusStopAndSchool;
+
+        return calculatedRouteDistance;
+    }
+
     public BusStop findBusStopById(int id) {
         return busStops.stream()
                 .filter(busStop -> busStop.getId() == id)
