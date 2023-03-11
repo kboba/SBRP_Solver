@@ -1,16 +1,13 @@
 package pl.kboba.sbrp;
 
 import pl.kboba.sbrp.model.City;
-import pl.kboba.sbrp.solver.BasicResultPrinter;
-import pl.kboba.sbrp.solver.BasicProblemSolver;
-import pl.kboba.sbrp.solver.ProblemSolver;
-import pl.kboba.sbrp.solver.ProblemResultPrinter;
+import pl.kboba.sbrp.solver.*;
 
 public class Main {
     public static void main(String[] args) {
-        City city = new City();
-        ProblemSolver basicProblemSolver = new BasicProblemSolver(city);
-        ProblemResultPrinter problemResultPrinter = new BasicResultPrinter(basicProblemSolver);
+        ProblemResultPrinter problemResultPrinter = new BasicResultPrinter(new BasicProblemSolver(new City()));
+        problemResultPrinter.printResult();
+        problemResultPrinter.setProblemSolver(new NearestNeightbourProblemSolver(new City()));
         problemResultPrinter.printResult();
     }
 }

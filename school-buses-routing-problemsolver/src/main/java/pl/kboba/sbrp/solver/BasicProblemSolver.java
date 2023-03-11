@@ -9,17 +9,16 @@ import java.util.Random;
 
 public class BasicProblemSolver extends ProblemSolver {
 
-    Random random = new Random();
-
     public BasicProblemSolver(@NonNull City city) {
         super(city);
-        initializeRouteById();
+        initializeRandomRoute();
         setRouteDistance(city.calculateTotalRouteDistance());
     }
 
 
     @Override
     public void findSolution() {
+        Random random = new Random();
         int numberOfBusStops = city.getBusStops().size();
         for (int i = 0; i < 200; i++) {
             int firstListId = random.nextInt(numberOfBusStops);
@@ -44,7 +43,7 @@ public class BasicProblemSolver extends ProblemSolver {
     }
 
 
-    public void initializeRouteById() {
+    private void initializeRandomRoute() {
         // find starting stop (id == 100)
         BusStop currentBusStop = city.findBusStopById(100);
         // when is any bus stop not visited, then continue visiting
