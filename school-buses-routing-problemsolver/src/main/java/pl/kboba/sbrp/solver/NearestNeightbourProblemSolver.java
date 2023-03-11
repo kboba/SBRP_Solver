@@ -6,7 +6,6 @@ import pl.kboba.sbrp.model.City;
 import pl.kboba.sbrp.model.Road;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.Random;
 
 public class NearestNeightbourProblemSolver extends ProblemSolver {
@@ -61,7 +60,7 @@ public class NearestNeightbourProblemSolver extends ProblemSolver {
     }
 
     public BusStop getNearestNotVisitedBusStopId(BusStop busStop) {
-        List<Road> sortedRoads = busStop.getRoadsToOtherStops()
+        var sortedRoads = busStop.getRoadsToOtherStops()
                 .stream()
                 .sorted(Comparator.comparing(Road::getDistance))
                 .toList();
