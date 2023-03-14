@@ -18,7 +18,7 @@ public class BasicResultPrinter extends ProblemResultPrinter {
         System.out.println("## Before optimization ##");
         System.out.println("#########################");
         printResultFromProblemSolver();
-        problemSolver.findSolution();
+        problemSolver.optimizeSolutionWith2opt();
         System.out.println();
         System.out.println("#########################");
         System.out.println("## After optimization  ##");

@@ -26,10 +26,10 @@ public abstract class ProblemSolver {
         return city.getBusStops();
     }
 
-    public void findSolution (){
+    public void optimizeSolutionWith2opt(){
         Random random = new Random();
         int numberOfBusStops = city.getBusStops().size();
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < numberOfBusStops*numberOfBusStops+10; i++) {
             int firstListId = random.nextInt(numberOfBusStops);
             int secondListId = random.nextInt(numberOfBusStops);
             while (problemSolverUtils.numbersAreSame(firstListId, secondListId)
