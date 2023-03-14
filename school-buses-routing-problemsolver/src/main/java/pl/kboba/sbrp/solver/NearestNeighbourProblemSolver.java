@@ -8,9 +8,9 @@ import pl.kboba.sbrp.model.Road;
 import java.util.Comparator;
 import java.util.Random;
 
-public class NearestNeightbourProblemSolver extends ProblemSolver {
+public class NearestNeighbourProblemSolver extends ProblemSolver {
 
-    public NearestNeightbourProblemSolver(@NonNull City city) {
+    public NearestNeighbourProblemSolver(@NonNull City city) {
         super(city);
         initializeRouteByNN();
         setRouteDistance(city.calculateTotalRouteDistance());
