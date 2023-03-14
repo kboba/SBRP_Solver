@@ -22,32 +22,6 @@ public class GreedyHeuristicProblemSolver extends ProblemSolver {
         setRouteDistance(city.calculateTotalRouteDistance());
     }
 
-    @Override
-    public void findSolution() {
-        Random random = new Random();
-        int numberOfBusStops = city.getBusStops().size();
-        for (int i = 0; i < 200; i++) {
-            int firstListId = random.nextInt(numberOfBusStops);
-            int secondListId = random.nextInt(numberOfBusStops);
-            while (problemSolverUtils.numbersAreSame(firstListId, secondListId)
-                    || problemSolverUtils.firstNextIdIsSameLikeSecondId(city, firstListId, secondListId)
-                    || problemSolverUtils.secondPreviousIdIsSameLikeFristId(city, firstListId, secondListId)
-                    || problemSolverUtils.firstNextIdIsSameLikeSecondPreviousId(city, firstListId, secondListId)
-            ){
-                firstListId = random.nextInt(numberOfBusStops);
-                secondListId = random.nextInt(numberOfBusStops);
-            }
-            problemSolverUtils.revertTwoBusStopsById(city, firstListId, secondListId);
-            double newCalculatedDistance = city.calculateTotalRouteDistance();
-            if(newCalculatedDistance >= getRouteDistance())
-                problemSolverUtils.revertTwoBusStopsById(city, firstListId, secondListId);
-            else {
-                setRouteDistance(newCalculatedDistance);
-                i = 0;
-            }
-        }
-    }
-
     private void initializeGreedyHeuristicRoute() {
         for(BusStop busStop : city.getBusStops())
             greedyBusStops.add(new GreedyHeuristicBusStop(busStop));
