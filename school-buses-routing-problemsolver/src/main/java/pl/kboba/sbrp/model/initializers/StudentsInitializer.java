@@ -10,7 +10,7 @@ public final class StudentsInitializer {
 
     }
 
-    public static List<Student> basicStudentsInitialize() {
+    public static List<Student> basicInitialize() {
         List<Student> students = new ArrayList<>();
         students.add(new Student(9, 12));
         students.add(new Student(9, 22));
