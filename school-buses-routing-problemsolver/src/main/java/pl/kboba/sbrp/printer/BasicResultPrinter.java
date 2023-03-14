@@ -1,7 +1,8 @@
-package pl.kboba.sbrp.solver;
+package pl.kboba.sbrp.printer;
 
 import lombok.NonNull;
 import pl.kboba.sbrp.model.BusStop;
+import pl.kboba.sbrp.solver.ProblemSolver;
 
 import java.util.List;
 

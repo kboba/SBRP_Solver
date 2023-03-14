@@ -1,6 +1,8 @@
 package pl.kboba.sbrp;
 
 import pl.kboba.sbrp.model.City;
+import pl.kboba.sbrp.printer.BasicResultPrinter;
+import pl.kboba.sbrp.printer.ProblemResultPrinter;
 import pl.kboba.sbrp.solver.*;
 
 public class Main {
