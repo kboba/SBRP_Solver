@@ -30,19 +30,19 @@ public class BasicResultPrinter extends ProblemResultPrinter {
 
     private void printResultFromProblemSolver() {
         List<BusStop> busStopsSolution = problemSolver.getSolution();
-        if(busStopsSolution == null || problemSolver.city == null) {
+        if(busStopsSolution == null || problemSolver.getCity() == null) {
             System.out.println("An error occurred: solution is null");
             return;
         }
         System.out.println("Route:");
-        BusStop busStop = problemSolver.city.findBusStopById(100);
+        BusStop busStop = problemSolver.getCity().findBusStopById(100);
         for(int i = 0; i < busStopsSolution.size(); i++) {
             if(busStop == null) {
                 System.out.println("An error occurred: bus stop is null");
                 return;
             }
             System.out.print("Id:".concat(String.valueOf(busStop.getId())).concat(" -> "));
-            busStop = problemSolver.city.findBusStopById(busStop.getNextId());
+            busStop = problemSolver.getCity().findBusStopById(busStop.getNextId());
         }
         double distance = problemSolver.getRouteDistance();
         System.out.println("\nTotal distance: ".concat(String.valueOf(distance)));
