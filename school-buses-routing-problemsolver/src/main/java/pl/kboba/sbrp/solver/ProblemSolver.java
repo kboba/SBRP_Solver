@@ -17,6 +17,7 @@ public abstract class ProblemSolver {
     @Setter
     private double routeDistance = 0;
     protected static final ProblemSolverUtils problemSolverUtils = new ProblemSolverUtils();
+    Random random = new Random();
 
     ProblemSolver(@NonNull City city) {
         this.city = city;
@@ -27,7 +28,6 @@ public abstract class ProblemSolver {
     }
 
     public void optimizeSolutionWith2opt(){
-        Random random = new Random();
         int numberOfBusStops = city.getBusStops().size();
         for (int i = 0; i < numberOfBusStops*numberOfBusStops+10; i++) {
             int firstListId = random.nextInt(numberOfBusStops);
