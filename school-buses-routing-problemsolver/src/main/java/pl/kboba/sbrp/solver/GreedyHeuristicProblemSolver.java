@@ -56,8 +56,6 @@ public class GreedyHeuristicProblemSolver extends ProblemSolver {
                 .sorted(Comparator.comparing(Road::getDistance))
                 .toList();
 
-        int counter = 0;
-        int limit = greedyBusStops.size();
         for (Road road : sortedRoads) {
             int firstBusStopID = road.getFirstBusStopID();
             int secondBusStopID = road.getSecondBusStopID();
@@ -69,16 +67,11 @@ public class GreedyHeuristicProblemSolver extends ProblemSolver {
                 continue;
             firstNeighbours.add(secondBusStopID);
             secondNeighbours.add(firstBusStopID);
-            counter++;
 
             if(isCycle(firstBusStopID) || isCycle(secondBusStopID)) {
-                firstNeighbours.remove(firstNeighbours.indexOf(secondBusStopID));
-                secondNeighbours.remove(secondNeighbours.indexOf(firstBusStopID));
-                counter--;
+                firstNeighbours.remove((Integer) secondBusStopID);
+                secondNeighbours.remove((Integer) firstBusStopID);
             }
-
-            if(counter >= limit)
-                break;
         }
 
         List<GreedyHeuristicBusStop> twoLastGreedyHeuristicBusStops = new ArrayList<>();
@@ -94,7 +87,7 @@ public class GreedyHeuristicProblemSolver extends ProblemSolver {
 
     private boolean isCycle(int firstBusStopID) {
         boolean isCycle = false;
-        int lastVisitedStopId = -2;
+        int lastVisitedStopId = firstBusStopID;
         int currentStopId = findGreedyBusStopById(firstBusStopID).getNeighbours().get(0);
         int timesVisited = 0;
         while(!isCycle) {
@@ -131,10 +124,10 @@ public class GreedyHeuristicProblemSolver extends ProblemSolver {
         city.findBusStopById(currentBusStop.getNextId()).setPreviousId(currentBusStop.getId());
     }
 
-    private class GreedyHeuristicBusStop {
+    private static class GreedyHeuristicBusStop {
 
         @Getter
-        private int id;
+        private final int id;
         @Getter
         @Setter
         private List<Integer> neighbours = new ArrayList<>();
