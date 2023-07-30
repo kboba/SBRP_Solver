@@ -16,5 +16,8 @@ public class Main {
         System.out.println("\n## Greedy Heuristic problem solver");
         problemResultPrinter.setProblemSolver(new GreedyHeuristicProblemSolver(new City()));
         problemResultPrinter.printResult();
+        System.out.println("\n## Christofides algorithm problem solver");
+        problemResultPrinter.setProblemSolver(new ChristofidesAlgorithmProblemSolver(new City()));
+        problemResultPrinter.printResult();
     }
 }

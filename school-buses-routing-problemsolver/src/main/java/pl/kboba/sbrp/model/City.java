@@ -32,8 +32,8 @@ public class City {
         while (currentBusStop.getNextId() != 100){
             int nextBusStopId = currentBusStop.getNextId();
             BusStop nextBusStop = findBusStopById(nextBusStopId);
-            double distanceBetweenCities = calculateDistanceBetweenTwoBusStops(currentBusStop, nextBusStop);
-            calculatedRouteDistance += distanceBetweenCities;
+            double distanceBetweenBusStops = calculateDistanceBetweenTwoBusStops(currentBusStop, nextBusStop);
+            calculatedRouteDistance += distanceBetweenBusStops;
             currentBusStop = nextBusStop;
         }
         double distanceBetweenLastBusStopAndSchool = calculateDistanceBetweenTwoBusStops(currentBusStop, school);
@@ -66,6 +66,9 @@ public class City {
 
     private void initializeBusStops() {
         busStops = BusStopsInitializer
+//                .basicInitialize();
+//                .basicMoreMessedInitialize();
+//                .squareInitialize();
                 .complicatedInitialize();
     }
 
@@ -129,10 +132,26 @@ public class City {
         return Math.hypot(distanceX, distanceY);
     }
 
-    public double calculateDistanceBetweenTwoBusStops(BusStop busStop1, BusStop busStop2) {
-        double distanceX = Math.abs(busStop1.getX()-busStop2.getX());
-        double distanceY = Math.abs(busStop1.getY()-busStop2.getY());
+    public double calculateDistanceBetweenTwoBusStops(BusStop sourceBusStop, BusStop destinationBusStop) {
+        double distanceX = Math.abs(sourceBusStop.getX()-destinationBusStop.getX());
+        double distanceY = Math.abs(sourceBusStop.getY()-destinationBusStop.getY());
 
         return Math.hypot(distanceX, distanceY);
+    }
+
+    public double calculateDistanceBetweenTwoBusStopsByIds(final int sourceId, final int destinationId) {
+        BusStop sourceBusStop = getBusStopById(sourceId);
+        BusStop destinationBusStop = getBusStopById(destinationId);
+        double distanceX = Math.abs(sourceBusStop.getX()-destinationBusStop.getX());
+        double distanceY = Math.abs(sourceBusStop.getY()-destinationBusStop.getY());
+
+        return Math.hypot(distanceX, distanceY);
+    }
+
+    private BusStop getBusStopById(final int id) {
+        for(BusStop busStop: this.busStops)
+            if(id == busStop.getId())
+                return busStop;
+        throw new IllegalStateException("C - There is no bus stop with given id");
     }
 }

@@ -3,7 +3,16 @@ package pl.kboba.sbrp.solver;
 import pl.kboba.sbrp.model.BusStop;
 import pl.kboba.sbrp.model.City;
 
+import java.util.List;
+
 public class ProblemSolverUtils {
+
+    public static ChristofidesAlgorithmProblemSolver.ChristofidesBusStop findChristofidesBusStopById(final List<ChristofidesAlgorithmProblemSolver.ChristofidesBusStop> chBusStops, final int id) {
+        for(ChristofidesAlgorithmProblemSolver.ChristofidesBusStop christofidesBusStop : chBusStops)
+            if(id == christofidesBusStop.getId())
+                return christofidesBusStop;
+        return null;
+    }
 
     public void revertTwoBusStopsById(City city, int firstListId, int secondListId) {
         BusStop firstBusStop = city.getBusStops().get(firstListId);
