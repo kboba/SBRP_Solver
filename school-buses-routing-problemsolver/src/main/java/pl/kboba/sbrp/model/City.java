@@ -19,7 +19,7 @@ public class City {
     public City() {
         initializeBusStops();
         initializeStudents();
-        assignStudentsToStops();
+//        assignStudentsToStops();
 //        deleteUnusedBusStops();
         initializeRoads();
     }
@@ -69,7 +69,8 @@ public class City {
 //                .basicInitialize();
 //                .basicMoreMessedInitialize();
 //                .squareInitialize();
-                .complicatedInitialize();
+//                .complicatedInitialize();
+                .houndredStopsInitialize();
     }
 
     private void initializeStudents() {
